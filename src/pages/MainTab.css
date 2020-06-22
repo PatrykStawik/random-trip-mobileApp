@@ -1,4 +1,15 @@
+
 .leaflet-container {
     height: 100%;
     width: 100%;
   }
+
+  .header{
+   text-align: center;
+  }
+
+  .ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
+

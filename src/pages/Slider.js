@@ -12,16 +12,16 @@ import * as distanceActions from '../data/actions/distanecActions'
 const Slider = ({dispatch}) => {
 
   
-  const [randomCord, setRandomCord] = useState(null)
+  
   const [kilometersRadius, setKilometersRadius] = useState(0)
-  const [cityPopulation, setCityPopulation] = useState(0)
+  
   const slidesEl = useRef(document.createElement('ion-slides'))
   const handleSlidesLoad = () => {
     
     slidesEl.current.getActiveIndex().then(res=>{
       // console.log(randomCord)
       // console.log(res)
-      if(res >= 1 && randomCord == null || res>=2 && kilometersRadius == 0 ){
+      if(res >= 1 && kilometersRadius == 0){
         slidesEl.current.lockSwipeToNext(true)
       }else{
         slidesEl.current.lockSwipeToNext(false)
@@ -29,8 +29,7 @@ const Slider = ({dispatch}) => {
      
     })
     dispatch(distanceActions.setKilometers(kilometersRadius))
-    dispatch(distanceActions.setCityPopulation(cityPopulation))
-    dispatch(distanceActions.setRandomCord(randomCord))
+    
   }
   
   const handleKilometers = (e) =>{
@@ -56,34 +55,10 @@ const Slider = ({dispatch}) => {
           </div>
         </IonSlide>
 
-        <IonSlide>
-          
-          <h2>Kilka pytań</h2>
-          <p>Na tym etapie chcemy zadać Ci pytanie czy wolisz odwiedzić <b>totalnie losowe miejsce na mapie</b> (uwaga może to być miejsce trudno dostepne) czy może wolisz udać się do <b>losowego miasta wylosowanego na podstawie Twoich preferencji</b></p>
-          <IonSelect placeholder="Wybierz jedno" 
-          onIonChange={(e)=>setRandomCord(e.detail.value)}>
-            <IonSelectOption value={false}>Losowy Punkt</IonSelectOption>
-            <IonSelectOption value={true}>Losowe Miasto</IonSelectOption>
-          </IonSelect>
-        </IonSlide>
         
         
-        <IonSlide>
-        {randomCord ? 
-        <>
-         <h2>Dopasuj szczegóły swojego miasta</h2>
-         <h5>Podaj maksymalną odległość</h5>
-          <IonItem>
-          <IonInput type="number" 
-            onIonChange={handleKilometers}/>
-          </IonItem>
-          <h5>Podaj minimalną populacje miasta</h5>
-          <IonItem>
-            <IonInput type="number" 
-            onIonChange={e=>setCityPopulation(parseInt(e.detail.value))}/>
-          </IonItem>
-        </>
-          :
+        
+        <IonSlide>      
           <>
           <h2>Jak daleko chcesz jechać ?</h2>
           <p>Podaj maksymalną odległość w kilometrach</p>
@@ -92,7 +67,7 @@ const Slider = ({dispatch}) => {
             onIonChange={handleKilometers}/>
           </IonItem>
           </>
-          }
+          
         </IonSlide>
         
       
