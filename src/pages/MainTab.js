@@ -23,9 +23,10 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
-    shadowUrl: iconShadow
+    shadowUrl: iconShadow,
+    iconSize: [20, 35],
+    iconAnchor: [17, 46]
 });
-
 
 
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -70,9 +71,11 @@ const MainTab = (props) => {
      }, [])
   
      useEffect(()=>{
-      
-      const map = mapRef.current.leafletElement; 
+      setTimeout(() => {
+        const map = mapRef.current.leafletElement; 
       map.invalidateSize()
+      }, 250);
+      
      }
      )
   
