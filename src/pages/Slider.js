@@ -3,6 +3,8 @@ import { IonContent, IonSlides, IonSlide, IonApp, IonButton, IonIcon, IonImg, Io
 
 import './Slider.css';
 
+import MainTab from './MainTab';
+
 import Slide1 from '../resources/slide1_world.png';
 import { connect } from 'react-redux';
 
@@ -79,7 +81,9 @@ const Slider = ({dispatch}) => {
         </IonSlide>
       </IonSlides>
     </IonContent>
+    
   </IonApp>
+  
   );
 };
 

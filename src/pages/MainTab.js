@@ -26,6 +26,8 @@ let DefaultIcon = L.icon({
     shadowUrl: iconShadow
 });
 
+
+
 L.Marker.prototype.options.icon = DefaultIcon;
 
 
@@ -36,6 +38,7 @@ const MainTab = (props) => {
 
   const [showPopover, setShowPopover] = useState(false);
   const kilometersInput = useRef(null)
+  const mapRef = useRef(null)
 
   const handleClick = ()=>{
     props.setKilometers(kilometersInput.current.value)
@@ -66,7 +69,12 @@ const MainTab = (props) => {
 
      }, [])
   
-     
+     useEffect(()=>{
+      
+      const map = mapRef.current.leafletElement; 
+      map.invalidateSize()
+     }
+     )
   
      const position = [latitude, longitude]
      console.log('position: ', position)
@@ -116,7 +124,7 @@ const MainTab = (props) => {
             </IonButton>
             
           
-          <Maps center={position} zoom={13} keyboard={0}>
+          <Maps center={position} zoom={13} keyboard={0} animate={true} ref={mapRef} >
             
                   <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -125,6 +133,7 @@ const MainTab = (props) => {
               <Popup>Kliknij aby przejść do googla: <br/><a  onClick={()=>window.open(linkToGoogle)}>{`${latitude}, ${longitude}`}</a></Popup>
               </Marker>
           </Maps>
+
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
             <IonFabButton onClick={()=>setShowPopover(true)}>
               <IonIcon icon={optionsOutline}/>
