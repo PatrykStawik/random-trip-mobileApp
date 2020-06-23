@@ -29,14 +29,14 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.1"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "resources": "cordova-res ios && cordova-res android && node scripts/resources.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.2.0"
+    "@capacitor/cli": "2.2.0",
+    "cordova-res": "^0.15.0"
   }
 }

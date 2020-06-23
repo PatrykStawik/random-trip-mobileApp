@@ -77,12 +77,7 @@ const MainTab = (props) => {
      )
   
      const position = [latitude, longitude]
-    
-  
-  
-    
 
- 
   
   const converterDegrees = ()=>{
     
@@ -113,7 +108,7 @@ const MainTab = (props) => {
   return (
     <IonApp>
       <IonContent >
-          <IonHeader className="header">Tu Jesteś</IonHeader>
+          <IonHeader className="header">Random Trip</IonHeader>
           
           <IonButton className="ripple-parent" expand="block" color="primary" onClick={converterDegrees}>LOSUJ!
             <IonRippleEffect type="unbounded"></IonRippleEffect>
