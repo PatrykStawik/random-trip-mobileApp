@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { IonContent, IonSlides, IonSlide, IonApp, IonButton, IonIcon, IonImg, IonSelect, IonSelectOption, IonHeader, IonRippleEffect, IonFab, IonFabButton, IonModal, IonItem, IonInput, IonPopover} from '@ionic/react';
+import { IonContent, IonApp, IonButton, IonIcon, IonHeader, IonRippleEffect, IonFab, IonFabButton, IonItem, IonInput, IonPopover} from '@ionic/react';
 
 import {optionsOutline, locateOutline} from 'ionicons/icons';
 
@@ -9,14 +9,14 @@ import {connect} from 'react-redux'
 
 import { Map as Maps, Marker, Popup, TileLayer } from 'react-leaflet'
 
-import './MainTab.css';
+
 
 import randomLatitude from 'random-latitude';
 import randomLongitude from 'random-longitude'
 
+import './MainTab.css';
 import 'leaflet/dist/leaflet.css'
 
-//const {Geolocation} = Plugins;
 
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
@@ -62,7 +62,7 @@ const MainTab = (props) => {
       const crd = position.coords
       setLatitude(crd.latitude)
       setLongitude(crd.longitude)
-      console.log('moja pozycja: ', latitude, longitude)
+      
 
      })
 }
@@ -77,15 +77,15 @@ const MainTab = (props) => {
      )
   
      const position = [latitude, longitude]
-     console.log('position: ', position)
+    
   
   
     
 
  
   
-  const converterDegrees = (e)=>{
-    //  e.preventDefault()
+  const converterDegrees = ()=>{
+    
     let newLatitude = props.kilometers * 1/111;
     let newLongitude = props.kilometers * 1/(111 * Math.cos(newLatitude));
     console.log('kilometry', props.kilometers)
@@ -96,18 +96,14 @@ const MainTab = (props) => {
 
     setLatitude(random_latitude);
     setLongitude(random_longitude);
-    
-  
      
   }
-  const resetFunction=(e)=>{
-     // e.preventDefault();
+
+  const resetFunction=()=>{
       geolocation.getCurrentPosition(function(position) {
-          //console.log(position);
           const crd = position.coords
           setLatitude(crd.latitude)
           setLongitude(crd.longitude)
-          console.log('start: ', latitude, longitude)
           });
   }
   const linkToGoogle = `https://www.google.com/search?q=${latitude},${longitude}`
@@ -119,19 +115,19 @@ const MainTab = (props) => {
       <IonContent >
           <IonHeader className="header">Tu Jesteś</IonHeader>
           
-            <IonButton className="ripple-parent" expand="block" color="primary" onClick={converterDegrees}>LOSUJ!
+          <IonButton className="ripple-parent" expand="block" color="primary" onClick={converterDegrees}>LOSUJ!
             <IonRippleEffect type="unbounded"></IonRippleEffect>
-            </IonButton>
+          </IonButton>
             
           
           <Maps center={position} zoom={13} keyboard={0} animate={true} ref={mapRef} >
             
-                  <TileLayer
+            <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="made by Patryk Stawik"/>
-                  <Marker position={position}>
+            <Marker position={position}>
               <Popup>Kliknij aby przejść do googla: <br/><a  onClick={()=>window.open(linkToGoogle)}>{`${latitude}, ${longitude}`}</a></Popup>
-              </Marker>
+            </Marker>
           </Maps>
 
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
@@ -140,25 +136,25 @@ const MainTab = (props) => {
               <IonRippleEffect type="unbounded"></IonRippleEffect>
             </IonFabButton>
           </IonFab>
+
           <IonFab vertical="bottom" horizontal="start" slot="fixed">
             <IonFabButton onClick={resetFunction}>
               <IonIcon icon={locateOutline}/>
               <IonRippleEffect type="unbounded"></IonRippleEffect>
             </IonFabButton>
           </IonFab>
-                <IonPopover
-              isOpen={showPopover}
-              cssClass='my-custom-class'
-              onDidDismiss={e => setShowPopover(false)}
-            >
+            <IonPopover
+                  isOpen={showPopover}
+                  cssClass='my-custom-class'
+                  onDidDismiss={e => setShowPopover(false)}>
               <p>Podaj maksymalną odległość w kilometrach</p>
-                  <IonItem>
-                    <IonInput inputMode="decimal" type="number" 
+              <IonItem>
+                <IonInput inputMode="decimal" type="number" 
                     value={props.kilometers} ref={kilometersInput}/>
-                  </IonItem>
-                  <IonButton expand="block" onClick={handleClick}>Zastosuj
-                  <IonRippleEffect type="unbounded"></IonRippleEffect>
-                  </IonButton>
+              </IonItem>
+              <IonButton expand="block" onClick={handleClick}>Zastosuj
+                <IonRippleEffect type="unbounded"></IonRippleEffect>
+              </IonButton>
             </IonPopover>
         </IonContent>
   </IonApp>

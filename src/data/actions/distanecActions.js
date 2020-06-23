@@ -7,12 +7,3 @@ export const setKilometers = (kilometers)=>{
     }
 }
 
-export const setCityPopulation = (cityPopulation)=>({
-    type: actionTypes.SET_CITY_POPULATION,
-    cityPopulation
-})
-
-export const setRandomCord = (randomCord)=>({
-    type: actionTypes.SET_RANDOM_CORD,
-    randomCord
-})

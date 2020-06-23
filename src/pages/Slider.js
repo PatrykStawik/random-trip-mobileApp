@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { IonContent, IonSlides, IonSlide, IonApp, IonButton, IonIcon, IonImg, IonSelect, IonSelectOption, IonInput, IonItem, IonLabel, IonItemDivider, } from '@ionic/react';
+import { IonContent, IonSlides, IonSlide, IonApp, IonButton, IonIcon, IonImg, IonInput, IonItem, } from '@ionic/react';
 
 import './Slider.css';
-
-import MainTab from './MainTab';
+import {arrowForward} from 'ionicons/icons';
 
 import Slide1 from '../resources/slide1_world.png';
+import Slide2 from '../resources/slide2_road.png';
+import Slide3 from '../resources/slide3_road.png';
+
+
 import { connect } from 'react-redux';
 
 import * as distanceActions from '../data/actions/distanecActions'
@@ -28,19 +31,16 @@ const Slider = ({dispatch}) => {
       }else{
         slidesEl.current.lockSwipeToNext(false)
       }
-     
     })
     dispatch(distanceActions.setKilometers(kilometersRadius))
     
   }
   
   const handleKilometers = (e) =>{
-    setKilometersRadius(parseInt(e.target.value))
-    //dispatch(distanceActions.setKilometers(kilometersRadius))
-    
+    setKilometersRadius(parseInt(e.target.value))  
   }
  
-//jak wypełnisz to pojawia sie dopiero napis przesun w lewo
+
   
   
   return (
@@ -61,23 +61,21 @@ const Slider = ({dispatch}) => {
         
         
         <IonSlide>      
-          <>
           <h2>Jak daleko chcesz jechać ?</h2>
           <p>Podaj maksymalną odległość w kilometrach</p>
           <IonItem>
             <IonInput inputMode="decimal" type="number" 
             onIonChange={handleKilometers}/>
           </IonItem>
-          </>
-          
+          <IonImg src={Slide2} className="ion-img"/>
         </IonSlide>
         
       
         
         <IonSlide>
-          <img src="./slide-4.png"/>
+          <IonImg src={Slide3} className="ion-img"/>
           <h2>Gotowy na podróż?</h2>
-          <IonButton fill="clear" routerLink="/mainTab">Kontynuuj <IonIcon slot="end" name="arrow-forward"></IonIcon></IonButton>
+          <IonButton fill="clear" routerLink="/mainTab">Kontynuuj <IonIcon slot="end" icon={arrowForward}></IonIcon></IonButton>
         </IonSlide>
       </IonSlides>
     </IonContent>
@@ -87,12 +85,6 @@ const Slider = ({dispatch}) => {
   );
 };
 
-const mapStateToProps = (state)=>{
-  console.log('mapstate ',state)
-  return {
-    state
-  }
-}
 
 
 
