@@ -4,7 +4,7 @@ Application made for traveling to random places.
 
 You can choose how far you want to go and draw a place on the map
 
-![alt](https://imgur.com/s0Tnk1I)
+![alt](https://i.imgur.com/s0Tnk1I.gif)
 
 
 
