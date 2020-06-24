@@ -4,6 +4,11 @@ Application made for traveling to random places.
 
 You can choose how far you want to go and draw a place on the map
 
+![alt](https://lh3.googleusercontent.com/CBIqWCmyWynus6-wqXKr4XMqtqTK85AH0OkK4fKkg13SR0tjCbhyN3RhFAzBDI6e5J5ZIGiQHLxfJcWIOc_lajaPFzsSigJXSVHLVqRr75R1FU7SdwsxmyJ5OaTqMGsO9xAuUQog5cblAiFu-xxgDWEtddwwLhxnFlv9NzLOQRGwLJsa6Bp2Qe4rIlpTbM71fG-zFEED8r1owAXTIVmzJH-_M-lytPWA2PCKyON-QC3o76lUe8yqfSsi8_eFzBIR2x3WW9C3GjouvUxs61Th6q-UFllxIjqL02N6aJJYXFkAzyXTC3vDZNq3xj6zv1r4_sy2TyrygWhWQXreUxtkdYUOEfCxnVsDa8taankNZh7zKzrpPBZCshuyHlxIbbUATyfd09KgezIiaDEJkO0SxZW7d572qfhPto3OYL8l9XaYbHAuyC9qcmRJeboMnZAxXRN3dVZbY9QJT3LDX-48Y8TKGoq8R9MmeHbRXa8z5IkJEHvL6nsZoCM3aotherMhI4CHxMQWy1EO8UuToXcl6Y7CDwPS7qT_8yt1jb73U9vKPbPeporikH-Wdl9Nu0Fdw5FvgiHjr_nWux08oZHuNlhRZtAkd2CU9sCA57YRMvtd8T3fyVpG5ujyeDa8bShlqHBEivWaW5MiUuHUG4A6vA6MROt0Fa5q9i2adzxhT_e-EkvTBp5Y--2atVB5gw0=w444-h888-no?authuser=0)
+
+
+
+
 ### Downoload the beta version for android
 https://we.tl/t-BScpmCJXvL
 or
